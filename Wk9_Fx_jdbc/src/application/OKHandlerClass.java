@@ -12,13 +12,10 @@ public class OKHandlerClass implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent arg0) {
 		
-	/*
-	 * Write the code to call the jdbc connectivity method here. 
-	 * 
-	 */
-	
 	// call the jdbc method here..  using object.method
-		
+	obj1.runJdbcCode();
+	System.out.println("Running Jdbc with Fx!!!"); 
+	//System.out.println("Running Jdbc with Fx!!!"); 
 		
 	}
 

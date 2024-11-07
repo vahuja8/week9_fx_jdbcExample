@@ -5,9 +5,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class SampleJdbcCode {
+public class SampleJdbcCode  {
+	
+	public void runJdbcCode() {
 
-	public static void main(String[] args) throws SQLException {
+ {
 		
 		
 		String url = "jdbc:mysql://localhost:3306/comp228_13"; // table details
@@ -24,19 +26,63 @@ public class SampleJdbcCode {
 			e.getMessage();
 			e.getCause();
 		} // Driver name
-		Connection con = DriverManager.getConnection(url, username, password);
+		Connection con = null;
+		try {
+			con = DriverManager.getConnection(url, username, password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("Connection Established successfully");
-		Statement st = con.createStatement();
+		Statement st = null;
+		try {
+			st = con.createStatement();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// setup the connection.. for db.. 
-		ResultSet rs = st.executeQuery(query); // Execute the sql query
-		rs.next();
-		String fname = rs.getString("firstName"); // Retrieve name from db
-		String lname = rs.getString("lastName");
+		ResultSet rs = null;
+		try {
+			rs = st.executeQuery(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // Execute the sql query
+		try {
+			rs.next();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String fname;
+		try {
+			fname = rs.getString("firstName");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // Retrieve name from db
+		String lname;
+		try {
+			lname = rs.getString("lastName");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-		System.out.println(fname + lname); // Print result on console
-		st.close(); // close statement
-		con.close(); // close connection
+		try {
+			st.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // close statement
+		try {
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // close connection
 		System.out.println("Connection Closed....");
 	}
-	
+	}
 }
