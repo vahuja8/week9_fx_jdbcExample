@@ -8,6 +8,7 @@ import javafx.event.EventHandler;
 public class OKHandlerClass implements EventHandler<ActionEvent> {
 
 	SampleJdbcCode obj1 = new SampleJdbcCode();
+	// created object of the datbase class that has the code!!
 	
 	@Override
 	public void handle(ActionEvent arg0) {

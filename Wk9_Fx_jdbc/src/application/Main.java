@@ -19,7 +19,9 @@ Button btOk = new Button("OK");
 Button btCancel = new Button("Cancel");
 OKHandlerClass handler1 = new OKHandlerClass();
 
-btOk.setOnAction(handler1);
+btOk.setOnAction(handler1); 
+// on the click of Okay button -with setOnAction -calls the handler1 that
+//deals with calling crud operation!. 
 CancelHandlerClass handler2 = new CancelHandlerClass(); //create handler object
 btCancel.setOnAction(handler2); //register the handler object 
 pane.getChildren().addAll(btOk, btCancel); //add buttons to the scene
